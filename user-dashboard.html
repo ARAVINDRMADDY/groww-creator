@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Dashboard - Creator Media Kit</title>
+  <link rel="icon" type="image/jpeg" href="images/growwcreator_logo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'teal-primary': '#14B8A6',
+            'teal-hover': '#2DD4BF',
+            'slate-dark': '#1F2937',
+            'mint-light': '#F0FDFA',
+            white: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    .dark ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    .dark ::-webkit-scrollbar-thumb { background: #4b5563; }
+    ::-webkit-scrollbar-thumb:hover { background: #14B8A6; }
+    
+    /* Smooth transition for sidebar */
+    .sidebar-transition {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* RTL Support */
+    [dir="rtl"] #sidebar {
+      left: auto;
+      right: 0;
+    }
+
+    [dir="rtl"] #sidebar.sidebar-closed {
+      transform: translateX(100%);
+    }
+
+    [dir="rtl"] .flex-1.lg\:ml-64 {
+      margin-left: 0;
+      margin-right: 16rem;
+    }
+
+    [dir="ltr"] #sidebar.sidebar-closed {
+      transform: translateX(-100%);
+    }
+
+    .image-zoom:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 dark:bg-[#111827] text-gray-800 dark:text-gray-100 transition-colors duration-300">
+
+  <div class="flex h-screen overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-slate-dark border-r border-teal-primary/20 text-white sidebar-closed lg:!translate-x-0 sidebar-transition shadow-2xl flex flex-col">
+      
+      <div class="h-16 md:h-20 flex items-center justify-center border-b border-teal-primary/20 px-6 shrink-0">
+        <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+          <span class="text-xl md:text-2xl font-bold tracking-tight text-white">Groww <span class="text-teal-primary">Creator
+
+</span></span>
+        </a>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1.5 scrollbar-thin">
+        
+        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Discovery</p>
+        
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 bg-teal-primary text-white rounded-xl shadow-lg shadow-teal-primary/20 transition-all duration-300 transform hover:scale-[1.02]">
+          <i class="fas fa-search w-5 text-center"></i>
+          <span class="font-medium">Discover Creators</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 text-gray-300 hover:bg-mint-light/10 hover:text-teal-primary rounded-xl transition-all duration-300 group">
+          <i class="fas fa-bookmark w-5 text-center group-hover:text-teal-primary transition-colors"></i>
+          <span class="font-medium">Saved Portfolios</span>
+        </a>
+
+        <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-8 mb-3">Campaigns</p>
+
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 text-gray-300 hover:bg-mint-light/10 hover:text-teal-primary rounded-xl transition-all duration-300 group">
+          <i class="fas fa-bullhorn w-5 text-center group-hover:text-teal-primary transition-colors"></i>
+          <span class="font-medium">Active Campaigns</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 text-gray-300 hover:bg-mint-light/10 hover:text-teal-primary rounded-xl transition-all duration-300 group">
+          <i class="fas fa-file-signature w-5 text-center group-hover:text-teal-primary transition-colors"></i>
+          <span class="font-medium">Contracts</span>
+          <span class="ltr:ml-auto rtl:mr-auto bg-teal-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">2 Pending</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 text-gray-300 hover:bg-mint-light/10 hover:text-teal-primary rounded-xl transition-all duration-300 group">
+          <i class="fas fa-credit-card w-5 text-center group-hover:text-teal-primary transition-colors"></i>
+          <span class="font-medium">Payments</span>
+        </a>
+      </nav>
+
+      <div class="p-4 border-t border-teal-primary/20 bg-black/20">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer">
+          <div class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center font-bold">N</div>
+          <div class="overflow-hidden">
+            <p class="text-sm font-semibold text-white truncate">Nike Marketing</p>
+            <p class="text-xs text-gray-400 truncate">Brand Account</p>
+          </div>
+          <i class="fas fa-chevron-right ltr:ml-auto rtl:mr-auto text-xs text-gray-500"></i>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col lg:ml-64 min-w-0 transition-all duration-300">
+      
+      <header class="h-16 md:h-20 bg-white dark:bg-slate-dark shadow-sm border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 md:px-8 z-30 sticky top-0">
+        
+        <div class="flex items-center gap-4">
+          <button id="sidebar-toggle" class="lg:hidden p-2 ltr:-ml-2 rtl:-mr-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          <div class="hidden md:flex items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+            <span>Discover</span>
+            <i class="fas fa-chevron-right text-xs mx-2"></i>
+            <span class="text-teal-primary">Creator Media Kit</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-4">
+          <button id="rtl-toggle" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-all focus:outline-none font-bold text-xs" title="Toggle RTL/LTR">
+            <span id="rtl-text">RTL</span>
+          </button>
+
+          <button id="theme-toggle" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-teal-primary transition-all focus:outline-none">
+            <i class="fas fa-moon dark:hidden text-sm md:text-base"></i>
+            <i class="fas fa-sun hidden dark:inline text-sm md:text-base"></i>
+          </button>
+
+          <a href="login.html" class="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-teal-primary dark:hover:text-teal-primary transition-colors text-sm font-medium ltr:ml-2 rtl:mr-2">
+            <i class="fas fa-sign-out-alt text-lg"></i>
+            <span class="hidden sm:inline">Logout</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 scroll-smooth">
+        
+        <div class="bg-white dark:bg-slate-dark rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-8 relative transition-colors duration-300">
+          
+          <div class="h-48 md:h-64 relative group overflow-hidden cursor-default bg-gray-200 dark:bg-gray-800">
+            <img src="https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Workspace Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+            
+            <button class="absolute top-4 right-4 rtl:left-4 rtl:right-auto bg-black/40 hover:bg-black/60 backdrop-blur-md text-white w-10 h-10 flex items-center justify-center rounded-full transition-colors shadow-lg" title="Share Profile">
+              <i class="fas fa-share-alt"></i>
+            </button>
+          </div>
+
+          <div class="px-6 md:px-10 pb-8">
+            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+              
+              <div class="-mt-16 md:-mt-20 relative shrink-0 z-10 mx-auto md:mx-0 w-32 h-32 md:w-40 md:h-40">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80" alt="Emily Blunt" class="w-full h-full rounded-full border-[6px] border-white dark:border-slate-dark shadow-xl object-cover bg-white">
+                <div class="absolute bottom-1 right-1 md:bottom-2 md:right-2 bg-blue-500 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border-[3px] border-white dark:border-slate-dark shadow-sm" title="Verified Creator">
+                  <i class="fas fa-check text-xs md:text-sm"></i>
+                </div>
+              </div>
+
+              <div class="flex-1 flex flex-col xl:flex-row justify-between items-center xl:items-start gap-6 pt-2 md:pt-4">
+                
+                <div class="text-center md:ltr:text-left md:rtl:text-right w-full">
+                  <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mb-2">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Emily Blunt</h1>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-teal-primary/10 text-teal-primary border border-teal-primary/20 mt-1 sm:mt-0">
+                      <i class="fas fa-star mr-1"></i> Premium Creator
+                    </span>
+                  </div>
+                  
+                  <div class="text-sm font-medium flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4 text-gray-500 dark:text-gray-400">
+                    <span class="text-gray-700 dark:text-gray-300">@emilyblunt_creates</span>
+                    <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600 hidden sm:inline-block"></span>
+                    <span class="text-red-500"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>San Francisco, CA</span>
+                  </div>
+                  
+                  <p class="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-5 mx-auto md:mx-0">
+                    Creating cinematic tech reviews and aesthetic lifestyle vlogs. Helping millennials build their dream workspace and live a balanced life. 🎥✨
+                  </p>
+                  
+                  <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span class="px-3 py-1.5 text-xs font-semibold bg-gray-100 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-teal-primary/50 transition-colors cursor-default">#TechReview</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold bg-gray-100 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-teal-primary/50 transition-colors cursor-default">#DeskSetup</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold bg-gray-100 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-teal-primary/50 transition-colors cursor-default">#Lifestyle</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 items-center shrink-0 w-full xl:w-auto mt-2 xl:mt-0">
+                  <button class="w-full sm:w-auto px-6 py-3.5 bg-white dark:bg-slate-dark text-gray-700 dark:text-white font-bold rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-sm flex items-center justify-center gap-2 whitespace-nowrap">
+                    <i class="far fa-bookmark text-teal-primary"></i> Save Kit
+                  </button>
+                  <button class="w-full sm:w-auto px-8 py-3.5 bg-teal-primary hover:bg-teal-hover text-white font-bold rounded-xl transition-all shadow-lg shadow-teal-primary/30 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 whitespace-nowrap">
+                    <i class="fas fa-paper-plane"></i> Request Collab
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+          <div class="bg-white dark:bg-slate-dark rounded-2xl p-5 border border-gray-200 dark:border-gray-800 text-center shadow-sm hover:border-teal-primary transition-colors cursor-default">
+            <i class="fab fa-instagram text-3xl text-pink-500 mb-2"></i>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">850K</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mt-1">Followers</p>
+          </div>
+          <div class="bg-white dark:bg-slate-dark rounded-2xl p-5 border border-gray-200 dark:border-gray-800 text-center shadow-sm hover:border-teal-primary transition-colors cursor-default">
+            <i class="fab fa-youtube text-3xl text-red-500 mb-2"></i>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">1.2M</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mt-1">Subscribers</p>
+          </div>
+          <div class="bg-white dark:bg-slate-dark rounded-2xl p-5 border border-gray-200 dark:border-gray-800 text-center shadow-sm hover:border-teal-primary transition-colors cursor-default">
+            <i class="fab fa-tiktok text-3xl text-gray-800 dark:text-white mb-2"></i>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">2.5M</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mt-1">Followers</p>
+          </div>
+          <div class="bg-teal-primary rounded-2xl p-5 border border-teal-hover text-center shadow-lg shadow-teal-primary/20 cursor-default text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/10 ltr:-skew-x-12 rtl:skew-x-12 transform ltr:translate-x-1/2 rtl:-translate-x-1/2"></div>
+            <i class="fas fa-chart-line text-3xl mb-2 relative z-10"></i>
+            <h3 class="text-2xl font-bold relative z-10">6.8%</h3>
+            <p class="text-xs text-white/80 uppercase tracking-wide font-semibold mt-1 relative z-10">Avg Engagement</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
+          
+          <div class="xl:col-span-1 bg-white dark:bg-slate-dark p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4">Audience Demographics</h3>
+            <div class="relative h-64 w-full flex justify-center">
+              <canvas id="audienceChart"></canvas>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+              <p class="text-sm text-gray-600 dark:text-gray-400"><i class="fas fa-map-marker-alt text-teal-primary mr-2"></i> <strong>Top Locations:</strong> US (45%), UK (20%), CA (15%)</p>
+            </div>
+          </div>
+
+          <div class="xl:col-span-2 bg-white dark:bg-slate-dark p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-bold text-gray-800 dark:text-white">Live Social Feed</h3>
+              <button class="text-teal-primary text-sm font-semibold hover:underline">View All</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-gray-50 dark:bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 group cursor-pointer">
+                <div class="relative h-40 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Headphones" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg shadow-sm">
+                    <i class="fab fa-instagram text-pink-500"></i>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">Testing out the new Sony XM5s. The noise cancellation is unreal! 🎧✨ #techreview #audio</p>
+                  <div class="flex items-center gap-4 mt-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    <span><i class="fas fa-heart text-red-500"></i> 45.2K</span>
+                    <span><i class="fas fa-comment text-blue-400"></i> 1.2K</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 group cursor-pointer">
+                <div class="relative h-40 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Setup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg shadow-sm">
+                    <i class="fab fa-youtube text-red-500"></i>
+                  </div>
+                  <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
+                    <i class="fas fa-play-circle text-white text-3xl drop-shadow-lg"></i>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <p class="text-xs font-bold text-gray-800 dark:text-white truncate">My 2026 Desk Setup Tour!</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">Ultimate productivity and aesthetics.</p>
+                  <div class="flex items-center gap-4 mt-2 text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    <span><i class="fas fa-eye text-teal-primary"></i> 320K</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 group cursor-pointer hidden md:block">
+                <div class="relative h-40 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workspace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg shadow-sm">
+                    <i class="fab fa-tiktok text-black"></i>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">Morning aesthetic routine. Coffee + Code. ☕️💻 #lifestyle #routine</p>
+                  <div class="flex items-center gap-4 mt-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    <span><i class="fas fa-heart text-red-500"></i> 112K</span>
+                    <span><i class="fas fa-play text-gray-400"></i> 1.1M</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-6 px-1">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Past Brand Collabs & Portfolio</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white dark:bg-slate-dark rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden group image-zoom transition-shadow hover:shadow-xl cursor-pointer">
+              <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Work" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20">Sponsored</div>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="https://ui-avatars.com/api/?name=Sony&background=111&color=fff" alt="Brand" class="w-5 h-5 rounded-full">
+                  <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Sony Electronics</span>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Alpha Camera Launch Campaign</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">Dedicated YouTube review and 3x Instagram Reels driving 2.5M total impressions and 15% conversion lift.</p>
+                <div class="flex items-center gap-3 text-xs font-semibold text-teal-primary">
+                  <span><i class="fas fa-chart-bar"></i> View Case Study</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-slate-dark rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden group image-zoom transition-shadow hover:shadow-xl cursor-pointer">
+              <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Work" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20">Sponsored</div>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="https://ui-avatars.com/api/?name=Logi&background=000&color=fff" alt="Brand" class="w-5 h-5 rounded-full">
+                  <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Logitech</span>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Ergo Series Desk Makeover</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">Aesthetic workspace transformation video integrating the Ergo line. Hit #3 on YouTube Trending.</p>
+                <div class="flex items-center gap-3 text-xs font-semibold text-teal-primary">
+                  <span><i class="fas fa-chart-bar"></i> View Case Study</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-slate-dark rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden group image-zoom transition-shadow hover:shadow-xl cursor-pointer">
+              <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Podcast Integration Work" class="w-full h-full object-cover transition-transform duration-500">
+                <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20">Sponsored</div>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="https://ui-avatars.com/api/?name=SS&background=eee&color=000" alt="Brand" class="w-5 h-5 rounded-full">
+                  <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Squarespace</span>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Long-term Podcast Integration</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">6-month brand ambassadorship with dedicated 60-second ad reads across all podcast episodes.</p>
+                <div class="flex items-center gap-3 text-xs font-semibold text-teal-primary">
+                  <span><i class="fas fa-chart-bar"></i> View Case Study</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-6 px-1 border-t border-gray-200 dark:border-gray-800 pt-8">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white"><i class="fas fa-shopping-bag text-teal-primary mr-2"></i> Creator Merch & Products</h3>
+            <button class="text-sm text-gray-500 hover:text-teal-primary font-medium transition-colors">Visit Full Store <i class="fas fa-external-link-alt ml-1 text-xs"></i></button>
+          </div>
+          
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div class="bg-white dark:bg-slate-dark rounded-xl border border-gray-200 dark:border-gray-800 p-4 text-center hover:border-teal-primary transition-colors group cursor-pointer shadow-sm">
+              <div class="w-full h-40 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg mb-4 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                <div class="absolute top-2 left-2 bg-teal-primary text-white text-[10px] font-bold px-2 py-1 rounded">Apparel</div>
+              </div>
+              <h4 class="font-bold text-gray-800 dark:text-white truncate">"Create" Essential Hoodie</h4>
+              <p class="text-teal-primary font-bold mt-1">$45.00</p>
+              <button class="w-full mt-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:bg-teal-primary group-hover:text-white group-hover:border-teal-primary transition-all">View Product</button>
+            </div>
+
+            <div class="bg-white dark:bg-slate-dark rounded-xl border border-gray-200 dark:border-gray-800 p-4 text-center hover:border-teal-primary transition-colors group cursor-pointer shadow-sm">
+              <div class="w-full h-40 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg mb-4 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mug" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                <div class="absolute top-2 left-2 bg-teal-primary text-white text-[10px] font-bold px-2 py-1 rounded">Accessories</div>
+              </div>
+              <h4 class="font-bold text-gray-800 dark:text-white truncate">Coffee & Code Ceramic Mug</h4>
+              <p class="text-teal-primary font-bold mt-1">$18.00</p>
+              <button class="w-full mt-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:bg-teal-primary group-hover:text-white group-hover:border-teal-primary transition-all">View Product</button>
+            </div>
+
+            <div class="bg-white dark:bg-slate-dark rounded-xl border border-gray-200 dark:border-gray-800 p-4 text-center hover:border-teal-primary transition-colors group cursor-pointer shadow-sm">
+              <div class="w-full h-40 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg mb-4 overflow-hidden relative flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Presets" class="w-full h-full object-cover group-hover:scale-105 transition-transform opacity-80">
+                <i class="fas fa-file-download absolute text-3xl text-white drop-shadow-md"></i>
+                <div class="absolute top-2 left-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded">Digital</div>
+              </div>
+              <h4 class="font-bold text-gray-800 dark:text-white truncate">Cinematic LUTs Pack (Vol 1)</h4>
+              <p class="text-teal-primary font-bold mt-1">$29.99</p>
+              <button class="w-full mt-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:bg-teal-primary group-hover:text-white group-hover:border-teal-primary transition-all">View Product</button>
+            </div>
+
+            <div class="bg-white dark:bg-slate-dark rounded-xl border border-gray-200 dark:border-gray-800 p-4 text-center hover:border-teal-primary transition-colors group cursor-pointer shadow-sm">
+              <div class="w-full h-40 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg mb-4 overflow-hidden relative flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Notion" class="w-full h-full object-cover group-hover:scale-105 transition-transform opacity-80">
+                <i class="fas fa-book absolute text-3xl text-white drop-shadow-md"></i>
+                <div class="absolute top-2 left-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded">Digital</div>
+              </div>
+              <h4 class="font-bold text-gray-800 dark:text-white truncate">Creator Notion Template</h4>
+              <p class="text-teal-primary font-bold mt-1">$15.00</p>
+              <button class="w-full mt-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:bg-teal-primary group-hover:text-white group-hover:border-teal-primary transition-all">View Product</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // --- RTL/LTR Toggle Logic ---
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const rtlText = document.getElementById('rtl-text');
+    const html = document.documentElement;
+    const mainContent = document.querySelector('.flex-1.lg\\:ml-64');
+
+    if (localStorage.getItem('direction') === 'rtl') {
+      html.setAttribute('dir', 'rtl');
+      rtlText.textContent = 'LTR';
+      if (mainContent) {
+        mainContent.classList.remove('lg:ml-64');
+        mainContent.classList.add('lg:mr-64');
+      }
+    } else {
+      html.setAttribute('dir', 'ltr');
+      rtlText.textContent = 'RTL';
+    }
+
+    rtlToggle.addEventListener('click', () => {
+      const currentDir = html.getAttribute('dir');
+      
+      if (currentDir === 'ltr') {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+        rtlText.textContent = 'LTR';
+        if (mainContent) {
+          mainContent.classList.remove('lg:ml-64');
+          mainContent.classList.add('lg:mr-64');
+        }
+      } else {
+        html.setAttribute('dir', 'ltr');
+        localStorage.setItem('direction', 'ltr');
+        rtlText.textContent = 'RTL';
+        if (mainContent) {
+          mainContent.classList.remove('lg:mr-64');
+          mainContent.classList.add('lg:ml-64');
+        }
+      }
+    });
+
+    // --- Responsive Sidebar Logic ---
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const overlay = document.getElementById('sidebar-overlay');
+    
+    function toggleSidebar() {
+      const isClosed = sidebar.classList.contains('sidebar-closed');
+      
+      if (isClosed) {
+        sidebar.classList.remove('sidebar-closed');
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+      } else {
+        sidebar.classList.add('sidebar-closed');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      }
+    }
+
+    sidebarToggle.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
+
+    // --- Dark Mode Logic ---
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        updateCharts(true);
+      } else {
+        localStorage.setItem('theme', 'light');
+        updateCharts(false);
+      }
+    });
+
+    // --- Chart.js Configuration for BRAND Dashboard (Demographics) ---
+    let audienceChart;
+
+    function initCharts() {
+      const isDark = html.classList.contains('dark');
+      const textColor = isDark ? '#9ca3af' : '#4b5563';
+      const gridColor = isDark ? '#374151' : '#e5e7eb';
+
+      const ctx = document.getElementById('audienceChart').getContext('2d');
+      audienceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['13-17', '18-24', '25-34', '35-44', '45+'],
+          datasets: [
+            {
+              label: 'Male',
+              data: [15, 45, 25, 10, 5],
+              backgroundColor: '#14B8A6', // Teal
+              borderRadius: 4,
+            },
+            {
+              label: 'Female',
+              data: [10, 35, 30, 15, 10],
+              backgroundColor: '#8b5cf6', // Purple
+              borderRadius: 4,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { 
+              position: 'top', 
+              labels: { 
+                color: textColor,
+                usePointStyle: true,
+                boxWidth: 8
+              } 
+            },
+            tooltip: {
+              backgroundColor: isDark ? '#1f2937' : '#fff',
+              titleColor: isDark ? '#fff' : '#111',
+              bodyColor: isDark ? '#ccc' : '#444',
+              borderColor: isDark ? '#374151' : '#e5e7eb',
+              borderWidth: 1,
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: gridColor },
+              ticks: { 
+                color: textColor,
+                callback: function(value) { return value + '%' }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: textColor }
+            }
+          }
+        }
+      });
+    }
+
+    function updateCharts(isDark) {
+      const textColor = isDark ? '#9ca3af' : '#4b5563';
+      const gridColor = isDark ? '#374151' : '#e5e7eb';
+      
+      if(audienceChart) {
+        audienceChart.options.plugins.legend.labels.color = textColor;
+        audienceChart.options.plugins.tooltip.backgroundColor = isDark ? '#1f2937' : '#fff';
+        audienceChart.options.plugins.tooltip.titleColor = isDark ? '#fff' : '#111';
+        audienceChart.options.plugins.tooltip.bodyColor = isDark ? '#ccc' : '#444';
+        
+        audienceChart.options.scales.x.ticks.color = textColor;
+        audienceChart.options.scales.y.ticks.color = textColor;
+        audienceChart.options.scales.y.grid.color = gridColor;
+        
+        audienceChart.update();
+      }
+    }
+
+    window.addEventListener('load', initCharts);
+    
+    // Handle Window Resize
+    window.addEventListener('resize', () => {
+       if (window.innerWidth >= 1024) {
+         sidebar.classList.remove('sidebar-closed');
+         overlay.classList.add('hidden', 'opacity-0');
+       }
+    });
+
+  </script>
+</body>
+</html>

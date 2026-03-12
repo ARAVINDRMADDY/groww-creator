@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Services - Groww Creator</title>
+  <link rel="icon" type="image/jpeg" href="images/growwcreator_logo.jpg">
+  <meta name="description" content="Explore our premium platform services including creator growth tools, brand marketplace, monetization, and campaign management.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'teal-primary': '#14B8A6',
+            'teal-hover': '#2DD4BF',
+            'slate-dark': '#1F2937',
+            'mint-light': '#F0FDFA',
+            white: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    [dir="rtl"] { direction: rtl; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out; }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) translateY(-5px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-white dark:bg-slate-dark flex flex-col min-h-screen">
+
+  <nav class="bg-white dark:bg-slate-dark fixed w-full top-0 z-50 shadow-lg border-b border-teal-primary/20 transition-colors duration-300">
+    <div class="max-w-[1400px] mx-auto nav-container px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div class="flex flex-col">
+              <span class="text-2xl font-bold text-slate-dark dark:text-white nav-logo-text">Groww <span class="text-teal-primary">Creator</span></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden xl:flex items-center justify-center flex-1 nav-menu-container mx-4">
+          <div class="flex items-center space-x-0.5 lg:space-x-2">
+
+            <div class="relative group">
+              <button class="nav-link text-slate-700 dark:text-white hover:text-teal-primary dark:hover:text-teal-primary font-medium transition duration-300 flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10">
+                <span class="text-sm">Home</span>
+                <i class="fas fa-chevron-down text-xs"></i>
+              </button>
+              <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-dark border dark:border-gray-700 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                <a href="index.html" class="block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-mint-light/50 dark:hover:bg-mint-light/20 hover:text-teal-primary transition duration-300 rounded-t-md">Home Page 1</a>
+                <a href="home-2.html" class="block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-mint-light/50 dark:hover:bg-mint-light/20 hover:text-teal-primary transition duration-300 rounded-b-md">Home Page 2</a>
+              </div>
+            </div>
+
+            <a href="about.html" class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-sm">About</a>
+            
+            <a href="services.html" class="nav-link text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg bg-gray-100 dark:bg-white/5 text-sm">Services</a>
+            
+            <a href="pricing.html" class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-sm">Pricing</a>
+            <a href="blog.html" class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-sm">Blog</a>
+            
+            <a href="community.html" class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-sm">Community Page</a>
+            
+            <a href="contact.html" class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-sm">Contact</a>
+
+            <div class="relative group">
+              <button class="nav-link text-slate-700 dark:text-white hover:text-teal-primary font-medium transition duration-300 flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10">
+                <span class="text-sm">Dashboard</span>
+                <i class="fas fa-chevron-down text-xs"></i>
+              </button>
+              <div class="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-dark border dark:border-gray-700 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                <a href="admin-dashboard.html" class="block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-mint-light/50 dark:hover:bg-mint-light/20 hover:text-teal-primary transition duration-300 rounded-t-md">
+                  <i class="fas fa-user-shield mr-2"></i>Admin Dashboard
+                </a>
+                <a href="user-dashboard.html" class="block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-mint-light/50 dark:hover:bg-mint-light/20 hover:text-teal-primary transition duration-300 rounded-b-md">
+                  <i class="fas fa-user mr-2"></i>User Dashboard
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="hidden xl:flex items-center space-x-2">
+          <a href="login.html" class="nav-button text-slate-700 dark:text-white hover:text-teal-primary px-3 py-2 rounded-lg font-medium transition duration-300 text-sm flex items-center space-x-1 hover:bg-gray-100 dark:hover:bg-transparent">
+            <span>Login</span>
+          </a>
+          <a href="register.html" class="nav-button bg-teal-primary hover:bg-teal-hover text-white px-5 py-2.5 rounded-full font-medium transition duration-300 text-sm flex items-center space-x-2 shadow-md whitespace-nowrap">
+            <i class="fas fa-user-plus"></i>
+            <span>Register</span>
+          </a>
+
+          <button id="rtl-toggle" class="nav-icon-button w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center text-slate-700 dark:text-white transition duration-300 ml-2 text-xs font-semibold" title="Toggle RTL">
+            RTL
+          </button>
+
+          <button id="theme-toggle" class="nav-icon-button w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center text-slate-700 dark:text-white transition duration-300 ml-2" title="Toggle Theme">
+            <i class="fas fa-moon dark:hidden text-sm"></i>
+            <i class="fas fa-sun hidden dark:inline text-sm"></i>
+          </button>
+        </div>
+
+        <div class="xl:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-slate-700 dark:text-white hover:text-teal-primary focus:outline-none p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition duration-300">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 6h18M3 12h18M3 18h18"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden xl:hidden bg-white dark:bg-[#374151] border-t border-gray-200 dark:border-white/10 shadow-lg">
+      <div class="px-4 pt-2 pb-4 space-y-1 max-h-[calc(100vh-80px)] overflow-y-auto">
+
+        <div>
+          <button id="mobile-home-dropdown" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 rounded-lg transition duration-300">
+            <span class="text-sm font-medium">Home</span>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="mobile-home-icon"></i>
+          </button>
+          <div id="mobile-home-menu" class="hidden pl-4 mt-1 space-y-1">
+            <a href="index.html" class="block px-4 py-2 text-slate-600 dark:text-white/80 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm">Home Page 1</a>
+            <a href="home-2.html" class="block px-4 py-2 text-slate-600 dark:text-white/80 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm">Home Page 2</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm font-medium">About</a>
+        <a href="services.html" class="block px-4 py-3 text-teal-primary bg-gray-100 dark:bg-white/5 rounded-lg transition duration-300 text-sm font-medium">Services</a>
+        <a href="pricing.html" class="block px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm font-medium">Pricing</a>
+        <a href="blog.html" class="block px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm font-medium">Blog</a>
+        <a href="community.html" class="block px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm font-medium">Community Page</a>
+        <a href="contact.html" class="block px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm font-medium">Contact</a>
+
+        <div>
+          <button id="mobile-dashboard-dropdown" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 rounded-lg transition duration-300">
+            <span class="text-sm font-medium">Dashboard</span>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="mobile-dashboard-icon"></i>
+          </button>
+          <div id="mobile-dashboard-menu" class="hidden pl-4 mt-1 space-y-1">
+            <a href="admin-dashboard.html" class="block px-4 py-2 text-slate-600 dark:text-white/80 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm">
+              <i class="fas fa-user-shield mr-2"></i>Admin Dashboard
+            </a>
+            <a href="user-dashboard.html" class="block px-4 py-2 text-slate-600 dark:text-white/80 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-teal-primary rounded-lg transition duration-300 text-sm">
+              <i class="fas fa-user mr-2"></i>User Dashboard
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-gray-200 dark:border-white/10 mt-3 space-y-2">
+          <div class="grid grid-cols-2 gap-2">
+            <a href="login.html" class="block w-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-slate-700 dark:text-white px-4 py-3 rounded-lg font-medium text-center transition duration-300 text-sm">
+              Login
+            </a>
+            <a href="register.html" class="block w-full bg-teal-primary hover:bg-teal-hover text-white px-4 py-3 rounded-lg font-medium text-center transition duration-300 shadow-md text-sm">
+              Register
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <button id="mobile-rtl-toggle" class="bg-gray-100 dark:bg-white/10 text-slate-700 dark:text-white px-4 py-3 rounded-lg font-medium text-center transition duration-300 hover:bg-gray-200 dark:hover:bg-white/20 text-sm">
+              <i class="fas fa-language mr-2"></i>RTL
+            </button>
+            <button id="mobile-theme-toggle" class="bg-gray-100 dark:bg-white/10 text-slate-700 dark:text-white px-4 py-3 rounded-lg font-medium text-center transition duration-300 hover:bg-gray-200 dark:hover:bg-white/20 text-sm">
+              <i class="fas fa-moon mr-2 dark:hidden"></i>
+              <i class="fas fa-sun mr-2 hidden dark:inline"></i>
+              <span>Theme</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="images/45845.jpg" alt="Platform Services Background" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+
+    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-primary/30 rounded-full blur-3xl z-0"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-mint-light/20 rounded-full blur-3xl z-0"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-fade-in w-full">
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white drop-shadow-xl">
+        Platform <span class="text-teal-primary drop-shadow-xl">Capabilities</span>
+      </h1>
+      <p class="text-lg md:text-2xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-medium">
+        Everything you need to scale your audience, manage premium brand partnerships, and seamlessly monetize your influence within one powerful ecosystem.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50 dark:bg-[#111827]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="service-card bg-white dark:bg-slate-dark rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-mint-light/30 dark:bg-teal-primary/10 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300">
+            <i class="fas fa-chart-line text-teal-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-dark dark:text-white mb-4">Creator Growth</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            Unlock advanced analytics, real-time audience insights, and cross-platform engagement tracking to make data-driven decisions that skyrocket your growth.
+          </p>
+          <a href="#growth" class="text-teal-primary hover:text-teal-hover font-semibold inline-flex items-center group-hover:underline">
+            Explore Tools <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <div class="service-card bg-white dark:bg-slate-dark rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-mint-light/30 dark:bg-teal-primary/10 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300">
+            <i class="fas fa-store text-teal-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-dark dark:text-white mb-4">Brand Collaboration</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            A dynamic marketplace where verified brands discover creators easily. Get matched with campaigns that perfectly align with your niche and audience profile.
+          </p>
+          <a href="#marketplace" class="text-teal-primary hover:text-teal-hover font-semibold inline-flex items-center group-hover:underline">
+            View Marketplace <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <div class="service-card bg-white dark:bg-slate-dark rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-mint-light/30 dark:bg-teal-primary/10 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300">
+            <i class="fas fa-bullhorn text-teal-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-dark dark:text-white mb-4">Content Promotion</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            Amplify your best content. We provide strategic ad placements, network syndication, and algorithmic boosts to dramatically increase your visibility.
+          </p>
+          <a href="pricing.html" class="text-teal-primary hover:text-teal-hover font-semibold inline-flex items-center group-hover:underline">
+            Boost Reach <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <div class="service-card bg-white dark:bg-slate-dark rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-mint-light/30 dark:bg-teal-primary/10 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300">
+            <i class="fas fa-wallet text-teal-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-dark dark:text-white mb-4">Creator Monetization</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            Turn your passion into profit. Secure sponsored posts, negotiate premium brand deals, and manage recurring revenue streams with our built-in financial toolkit.
+          </p>
+          <a href="pricing.html" class="text-teal-primary hover:text-teal-hover font-semibold inline-flex items-center group-hover:underline">
+            Start Earning <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <div class="service-card bg-white dark:bg-slate-dark rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-mint-light/30 dark:bg-teal-primary/10 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300">
+            <i class="fas fa-tasks text-teal-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-dark dark:text-white mb-4">Management System</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            Say goodbye to messy email threads. Track deliverables, communicate with brands, and manage all your active collaborations directly from one unified dashboard.
+          </p>
+          <a href="#campaigns" class="text-teal-primary hover:text-teal-hover font-semibold inline-flex items-center group-hover:underline">
+            Explore Dashboard <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <div class="service-card bg-teal-primary rounded-3xl p-8 shadow-lg hover:shadow-xl hover:shadow-teal-primary/40 transition-all duration-300 group relative overflow-hidden flex flex-col justify-center">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10"></div>
+          <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 service-icon transition-transform duration-300 relative z-10">
+            <i class="fas fa-shield-halved text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4 relative z-10">Secure Escrow</h3>
+          <p class="text-white/90 leading-relaxed mb-6 relative z-10">
+            Never chase an invoice again. Our platform holds brand funds securely in escrow, guaranteeing creators get paid immediately upon campaign completion.
+          </p>
+          <a href="register.html" class="text-white font-semibold inline-flex items-center group-hover:underline relative z-10 mt-auto">
+            Create Free Account <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="growth" class="py-24 bg-white dark:bg-slate-dark border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1 relative group">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Analytics Dashboard" class="relative rounded-3xl shadow-xl z-10 w-full h-[450px] object-cover">
+        </div>
+        <div class="order-1 lg:order-2 space-y-6">
+          <div class="inline-flex items-center px-4 py-2 bg-mint-light dark:bg-slate-dark border border-teal-primary/30 rounded-full">
+            <i class="fas fa-chart-pie text-teal-primary mr-2"></i>
+            <span class="text-sm font-semibold text-slate-dark dark:text-white uppercase tracking-wider">Growth & Analytics</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-dark dark:text-white">Understand Your Audience Like Never Before</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            Data is the difference between a hobby and a business. Our Creator Growth consolidate data from all your social channels into one easy-to-read dashboard, providing you with the insights needed to negotiate better rates.
+          </p>
+          <ul class="space-y-4 pt-4">
+            <li class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-teal-primary/10 rounded-full flex items-center justify-center mt-1 mr-4">
+                <i class="fas fa-users text-teal-primary text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-dark dark:text-white">Deep Audience Insights</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Track demographics, active hours, and geographical data to post when your audience is most engaged.</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-teal-primary/10 rounded-full flex items-center justify-center mt-1 mr-4">
+                <i class="fas fa-chart-line text-teal-primary text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-dark dark:text-white">Engagement Tracking</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Monitor your true engagement rate across platforms to prove your value to potential brand partners.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="marketplace" class="py-24 bg-gray-50 dark:bg-[#111827] border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center px-4 py-2 bg-mint-light dark:bg-slate-dark border border-teal-primary/30 rounded-full">
+            <i class="fas fa-store text-teal-primary mr-2"></i>
+            <span class="text-sm font-semibold text-slate-dark dark:text-white uppercase tracking-wider">The Marketplace</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-dark dark:text-white">Where Premium Brands Meet Perfect Creators</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            Stop sending cold DMs. Our intelligent matching engine connects you directly with brands actively searching for creators in your niche. Simply build your media kit on our platform, set your rates, and let the opportunities come to you.
+          </p>
+          <div class="grid grid-cols-2 gap-6 pt-4">
+            <div class="bg-white dark:bg-slate-dark p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <i class="fas fa-bullseye text-3xl text-teal-primary mb-3"></i>
+              <h4 class="font-bold text-slate-dark dark:text-white mb-2">Smart Matching</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Get paired with brands that share your values and audience.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-dark p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <i class="fas fa-file-contract text-3xl text-teal-primary mb-3"></i>
+              <h4 class="font-bold text-slate-dark dark:text-white mb-2">Easy Contracts</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Pre-vetted legal templates make securing deals fast and safe.</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative group">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Collaboration" class="relative rounded-3xl shadow-xl z-10 w-full h-[450px] object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaigns" class="py-24 bg-white dark:bg-slate-dark border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1 relative group">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campaign Management Dashboard" class="relative rounded-3xl shadow-xl z-10 w-full h-[450px] object-cover">
+          <div class="absolute bottom-6 right-6 bg-white dark:bg-[#111827] p-4 rounded-xl shadow-2xl z-20 border border-gray-100 dark:border-gray-700 flex items-center space-x-4 animate-float">
+            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-500">
+              <i class="fas fa-check"></i>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-dark dark:text-white">Content Approved</p>
+              <p class="text-xs text-gray-500">Payment released to escrow</p>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 space-y-6">
+          <div class="inline-flex items-center px-4 py-2 bg-mint-light dark:bg-slate-dark border border-teal-primary/30 rounded-full">
+            <i class="fas fa-tasks text-teal-primary mr-2"></i>
+            <span class="text-sm font-semibold text-slate-dark dark:text-white uppercase tracking-wider">Workflow</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-dark dark:text-white">Track Every Collaboration in One Dashboard</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            Running your creator business shouldn't mean drowning in spreadsheets. Our Campaign Management System handles the entire lifecycle of a brand deal, from initial brief to final payout.
+          </p>
+          <ul class="space-y-4 pt-4">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-teal-primary mt-1 mr-3 text-lg"></i>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Centralized Communication:</strong> Chat with brand managers directly on the platform.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-teal-primary mt-1 mr-3 text-lg"></i>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Content Approvals:</strong> Submit drafts and receive feedback without messy email chains.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-teal-primary mt-1 mr-3 text-lg"></i>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Automated Invoicing:</strong> Generate and send invoices automatically when tasks are completed.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-slate-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-teal-primary/5"></div>
+    <div class="absolute top-0 right-1/4 w-72 h-72 bg-teal-primary/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Ready to Scale Your Creator Business?</h2>
+      <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+        Join thousands of creators who use our platform tools to grow their audience, secure premium brand deals, and take control of their monetization.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="register.html" class="inline-flex items-center justify-center px-8 py-4 bg-teal-primary hover:bg-teal-hover text-white rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-teal-primary/50 transform hover:-translate-y-1">
+          <i class="fas fa-rocket mr-2"></i> Join the Platform
+        </a>
+        <a href="pricing.html" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white/50 text-white rounded-full font-bold text-lg transition-all duration-300 hover:bg-white/10">
+          View Pricing Plans
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-slate-dark text-white pt-20 pb-10 mt-auto border-t-4 border-teal-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Groww <span class="text-teal-primary">Creator</span></h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">
+            Empowering you to perform your best through advanced platform tools, marketplace connections, and expert digital advice.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-teal-primary rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-teal-primary rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-teal-primary rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-teal-primary rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-6 text-mint-light">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">About Us</a></li>
+            <li><a href="pricing.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Pricing Plans</a></li>
+            <li><a href="blog.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Creator Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-6 text-mint-light">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#growth" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Growth Tools</a></li>
+            <li><a href="#marketplace" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Brand Marketplace</a></li>
+            <li><a href="pricing.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Monetization</a></li>
+            <li><a href="#campaigns" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Campaign Management</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-teal-primary transition-colors duration-300">Content Promotion</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-6 text-mint-light">Contact Us</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-teal-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">123 Creator Ave, Salem, Tamil Nadu, India</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone text-teal-primary mr-3"></i>
+              <a href="tel:+919876543210" class="text-gray-400 hover:text-teal-primary transition-colors">+91 98765 43210</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-teal-primary mr-3"></i>
+              <a href="mailto:info@growwcreator.com" class="text-gray-400 hover:text-teal-primary transition-colors">info@growwcreator.com</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-clock text-teal-primary mr-3"></i>
+              <span class="text-gray-400">Mon - Sat: 9AM - 6PM</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm mb-4 md:mb-0">
+          © 2026 Groww Creator. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="login.html" class="text-gray-500 hover:text-teal-primary text-sm transition-colors duration-300">Client Login</a>
+          <a href="#" class="text-gray-500 hover:text-teal-primary text-sm transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="text-gray-500 hover:text-teal-primary text-sm transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Mobile Dropdowns Toggle Function
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdown = document.getElementById(dropdownId);
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdown && menu && icon) {
+        dropdown.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+      }
+    }
+
+    // Initialize dropdowns
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dashboard-dropdown', 'mobile-dashboard-menu', 'mobile-dashboard-icon');
+
+  </script>
+</body>
+</html>
